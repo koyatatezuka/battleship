@@ -1,5 +1,6 @@
 
 import Ships from './modules/Ships';
+import './index.css';
 
 
 const destroyer = new Ships('destroyer', 5);
