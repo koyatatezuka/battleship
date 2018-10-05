@@ -1,3 +1,58 @@
-body {
-    background: blue;
+* {
+    padding: 0;
+    margin: 0;
+}
+
+background {
+    width: 100vw;
+    height: 100vw;
+    display: block;
+    position: relative;
+}
+
+body:after {
+    background: url('https://images.pexels.com/photos/67575/submarine-boat-sea-ocean-67575.jpeg?auto=compress&cs=tinysrgb&h=350');
+    background-size: cover;
+    z-index: -1;
+    opacity: .5;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: '';
+    height: 800px;
+    width: auto;
+}
+
+/* main board elements */
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table td {
+    font-size: 20px;
+}
+
+#player-cell {
+    border: 3px solid rgb(25, 185, 25);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0,0,0,.8);
+}
+
+#comp-cell {
+    border: 3px solid rgb(25, 185, 25);
+    width: 15px;
+    height: 15px;
+    background-color: rgba(0,0,0,.8);
 }
