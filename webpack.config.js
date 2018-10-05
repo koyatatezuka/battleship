@@ -1,7 +1,8 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack')
+const webpack = require('webpack');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
 	entry: {
@@ -9,8 +10,9 @@ module.exports = {
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: '[name]-bundle.js'
+		filename: '[name].js'
 	},
+	watch: true,
 	module: {
 		rules: [
 			{
@@ -52,6 +54,14 @@ module.exports = {
 			template: './src/index.html',
 			filename: 'index.html'
     }),
-    new webpack.HotModuleReplacementPlugin()
+	new webpack.HotModuleReplacementPlugin(),
+	new BrowserSyncPlugin({
+		// browse to http://localhost:3000/ during development,
+		// ./public directory is being served
+		host: 'localhost',
+		port: 3000,
+		files: ['./dist/*.html', './dist/*.css'],
+		server: { baseDir: ['dist'] }
+	  })
 	]
 };
