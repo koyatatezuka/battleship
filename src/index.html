@@ -4,16 +4,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Mini BattleShip</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
 
 </head>
 
 <body>
     <main>
+        <h2>Player Board</h2>
         <div class="board">
-            <table id="player-board" data-board="player">
+            <table id="player-board" data-board="player" class>
                 <tr>
                     <td></td>
                     <td>A</td>
@@ -25,130 +27,166 @@
                 </tr>
                 <tr>
                     <td>1</td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
                 </tr>
                 <tr>
                     <td>2</td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
                 </tr>
                 <tr>
                     <td>3</td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
                 </tr>
                 <tr>
                     <td>4</td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
                 </tr>
                 <tr>
                     <td>5</td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
                 </tr>
                 <tr>
                     <td>6</td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
-                    <td class="cell" id="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
+                    <td class="player-cell" value="empty"></td>
                 </tr>
             </table>
         </div>
-        <div class="board">
-                <table id="computer-board" data-board="computer">
-                    <tr>
-                        <td></td>
-                        <td>A</td>
-                        <td>B</td>
-                        <td>C</td>
-                        <td>D</td>
-                        <td>E</td>
-                        <td>F</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                        <td class="cell" id="comp-cell" value="empty"></td>
-                    </tr>
-                </table>
+        <div class="ship-container">
+            <div class="ships-box">
+                <div class="ship">
+                    <div class="ship-parts" value="battleship"></div>
+                    <div class="ship-parts" value="battleship"></div>
+                    <div class="ship-parts" value="battleship"></div>
+                    <div class="ship-parts" value="battleship"></div>
+                </div>
+                <button class="btn-ship">Battleship Turn</button>
             </div>
+            <div class="ships-box">
+                <div class="ship">
+                    <div class="ship-parts" value="cruiser"></div>
+                    <div class="ship-parts" value="cruiser"></div>
+                    <div class="ship-parts" value="cruiser"></div>
+                </div>
+                <button class="btn-ship">Cruiser Turn</button>
+            </div>
+            <div class="ships-box">
+                <div class="ship">
+                    <div class="ship-parts" value="submarine"></div>
+                    <div class="ship-parts" value="submarine"></div>
+                </div>
+                <button class="btn-ship">Submarine Turn</button>
+            </div>
+            <div class="ships-box">
+                <div class="ship">
+                    <div class="ship-parts" value="destroyer"></div>
+                </div>
+                <button class="btn-ship">Destroyer Turn</button>
+            </div>
+        </div>
+        <button class="btn-game" id="start-reset">START</button>
+        <h2>Computer Board</h2>
+        <div class="board">
+            <table id="computer-board" data-board="computer">
+                <tr>
+                    <td></td>
+                    <td>A</td>
+                    <td>B</td>
+                    <td>C</td>
+                    <td>D</td>
+                    <td>E</td>
+                    <td>F</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                    <td class="comp-cell" value="empty"></td>
+                </tr>
+            </table>
+        </div>
     </main>
 
-
+    <footer>
+        <p>By Koyata Tezuka</p>
+    </footer>
     <script src="index.js"></script>
 </body>
 

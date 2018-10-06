@@ -10,3 +10,4 @@ export default class Ships {
         return this._size;
     }
 }
+

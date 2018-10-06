@@ -1,58 +1,144 @@
 * {
-    padding: 0;
-    margin: 0;
+	padding: 0;
+	margin: 0;
 }
-
-background {
-    width: 100vw;
+body {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
     height: 100vw;
-    display: block;
-    position: relative;
+    font-family: 'Cinzel', serif;
 }
-
 body:after {
-    background: url('https://images.pexels.com/photos/67575/submarine-boat-sea-ocean-67575.jpeg?auto=compress&cs=tinysrgb&h=350');
-    background-size: cover;
-    z-index: -1;
-    opacity: .5;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    content: '';
-    height: 800px;
-    width: auto;
+	background: url('https://images.pexels.com/photos/67575/submarine-boat-sea-ocean-67575.jpeg?auto=compress&cs=tinysrgb&h=350');
+	background-size: cover;
+	z-index: -1;
+	opacity: 0.5;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	content: '';
+	height: 1100px;
+	width: auto;
 }
 
 /* main board elements */
 
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
     margin-top: 20px;
 }
 
 table {
-    border-collapse: collapse;
+	border-collapse: collapse;
     text-align: center;
+    cursor: pointer;
 }
 
 table td {
-    font-size: 20px;
+	font-size: 20px;
 }
 
-#player-cell {
-    border: 3px solid rgb(25, 185, 25);
+.player-cell {
+	border: 1px solid rgb(25, 185, 25);
+	width: 50px;
+	height: 50px;
+	background-color: rgba(0, 0, 0, 0.78);
+	transition: height 0.5s, width 0.5s, border 0.5s;
+	transition-timing-function: ease;
+}
+
+.comp-cell {
+	border: 1px solid rgb(25, 185, 25);
+	width: 20px;
+	height: 5px;
+	background-color: rgba(0, 0, 0, 0.78);
+	transition: height 0.5s, width 0.5s, border 0.5s;
+	transition-timing-function: ease;
+}
+
+/* ships and buttons */
+
+.ship-container {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    align-items: flex-end;
+}
+
+.ships-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ship {
+    display: flex;
+    flex-direction: column;
+}
+
+.ship-turn {
+    flex-direction: row;
+}
+
+.ship-parts {
     width: 50px;
     height: 50px;
-    background-color: rgba(0,0,0,.8);
+    border: 2px dotted black;
+    background: rgb(25, 185, 25);
 }
 
-#comp-cell {
-    border: 3px solid rgb(25, 185, 25);
-    width: 15px;
-    height: 15px;
-    background-color: rgba(0,0,0,.8);
+button {
+    outline: none;
+}
+
+.btn-ship {
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: inherit;
+    background-color: rgba(0, 0, 0, 0.78);
+    color: rgb(25, 185, 25);
+    transition: all .1s ease-in-out;
+}
+
+.btn-ship:hover {
+    transform: scale(2);
+}
+
+.btn-game {
+    margin: 5px 0;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    font-family: inherit;
+    background-color: rgba(255, 7, 7, 0.78);
+    color: rgb(14, 6, 8);
+    animation: pulse 3s ease-in-out 1s infinite;
+}
+
+
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.7); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.7); }
+    100% { transform: scale(1); }
+}
+
+/* footer */
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    width: 100vw;
+    
 }
