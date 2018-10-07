@@ -1,5 +1,5 @@
 import dom from './dom';
-import Ships from '../modules/Ships';
+import Ships from './Ships';
 
 // all board related events
 const boardControl = (() => {
@@ -57,20 +57,5 @@ const shipControl = (() => {
 			target.classList.toggle('ship-turn');
 		});
 	});
-
-	// game start button
- 
-	document.querySelector(dom.str.gameBtn).addEventListener('click', event => {
-		// toggle start / reset
-
-        if (!started) {
-            started = !started
-            document.querySelector(dom.str.shipCont).setAttribute('style', 'display: none');
-        } else if (started) {
-            started = !started;
-            document.querySelector(dom.str.shipCont).setAttribute('style', 'display: show');
-        }
-		
-    });
-    
+	
 })();
