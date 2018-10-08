@@ -1,19 +1,18 @@
-import './modules/events';
-import Ships from './modules/Ships';
-import { DomClass, DomBtn } from './modules/DomClass';
+
+
+import DomBtn from './modules/DOM/DomBtn';
+import DomBoard from './modules/DOM/DomBoard';
 
 import './index.css';
+
 
 // init
 (function() {
     const gameButton = new DomBtn(document.querySelector('.btn-game'));
-    
-
-    // toggle start - reset button
-	gameButton.toggleAttr(
-		'.ship-container',
-		'style',
-		'display: none',
-		'display: show'
-	);
+    const turnButton = new DomBtn(document.querySelectorAll('.btn-ship'))
+    const board = new DomBoard(document.querySelectorAll('.board'))
+  
+    board.switchBoard()
+	gameButton.toggleGame();
+    turnButton.turnShip()
 })();
