@@ -3,6 +3,6 @@ export default class DomClass {
         this.element = element;
         this.active = false;
     }
-    
+
 }
 
