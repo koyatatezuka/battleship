@@ -1,54 +1,42 @@
-import DomClass from './DomClass';
-import Ships from '../Ships/Ships';
-import Utility from '../Utility/Utility'
 
-export default class DomBtn extends DomClass {
+import Ships from '../Ships/Ships';
+import Board from '../Board/Board';
+
+export default class DomBtn {
 	constructor(element) {
-		super(element);
+		this.element = element;
 	}
 
 	// start and reset function
-	toggleGame(boardInstance) {
+	toggleGame(board) {
 		this.element.addEventListener('click', event => {
-			if (!this.active) {
-				this.active = !this.active;
-				boardInstance.gameStarted = true
-				document
-					.querySelector('.ship-container')
-					.setAttribute('style', 'display: none');
-
+			this.selectFocus()
+			if (board.ships.length === 4 && !board.gameStarted) {
+				board.gameStarted = true;
+				board.initGrid()
 				this.element.classList.add('active');
 				this.element.textContent = 'RESET';
-			} else if (this.active) {
-				this.active = !this.active;
-				boardInstance.gameStarted = false
-				document
-					.querySelector('.ship-container')
-					.setAttribute('style', 'display: show');
+				
 
+			} else if (board.gameStarted) {
+				
+				board.resetGridShips();
+				board.resetBoard();
 				this.element.classList.remove('active');
 				this.element.textContent = 'START';
-
-				Ships.shipSize('48px', '48px', '2px dotted black');
-				Utility.switchAttribute(
-					boardInstance.playerCellList,
-					boardInstance.compCellList,
-					'style',
-					'width: 50px; height: 50px; border: 2px solid rgb(25, 185, 25)',
-					'width: 20px; height: 5px; border: 1px solid rgb(25, 185, 25)'
-				);
+				// removes ships from board
+				while(board.ships.length > 0) {
+					board.ships.pop()
+				}
+			
 			}
 		});
 	}
 
-	turnShip() {
-		// element must be a node list
-		this.element.forEach(cur => {
-			cur.addEventListener('click', event => {
-				const target = event.target.previousSibling.previousSibling;
+	selectFocus() {
+		const selector = document.querySelector('.ships');
 
-				target.classList.toggle('ship-turn');
-			});
-		});
+		selector.item(0).focus()
 	}
+
 }

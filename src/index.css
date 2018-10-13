@@ -44,74 +44,66 @@ table td {
 }
 
 .player-cell {
+	border: 1px solid rgb(25, 185, 25);
+	width: 25px;
+	height: 25px;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.comp-cell {
 	border: 3px solid rgb(25, 185, 25);
 	width: 50px;
 	height: 50px;
 	background-color: rgba(0, 0, 0, 0.78);
-	transition: height 0.5s, width 0.5s, border 0.5s;
-	transition-timing-function: ease;
-}
-
-.comp-cell {
-	border: 1px solid rgb(25, 185, 25);
-	width: 20px;
-	height: 5px;
-	background-color: rgba(0, 0, 0, 0.78);
-	transition: height 0.5s, width 0.5s, border 0.5s;
-	transition-timing-function: ease;
 }
 
 /* ships and buttons */
 
-.ship-container {
+.action-container {
     display: flex;
-    flex-direction: row;
     width: 90%;
-    justify-content: space-around;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    align-items: flex-end;
-}
-
-.ships-box {
-    display: flex;
-    flex-direction: column;
+    justify-content: center;
+    margin: 20px auto;
     align-items: center;
 }
 
-.ship {
-    display: flex;
-    flex-direction: column;
+select {
+    outline: none;
+    width: 200px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.65);
+    color: rgb(25, 185, 25);
+    cursor: pointer;
+    font-size: 1em;
+    transition: all .5s
 }
 
-.ship-turn {
-    flex-direction: row;
+select:hover {
+    color: white;
 }
 
 .ship-parts {
-    width: 48px;
-    height: 48px;
-    border: 2px dotted black;
+    width: 24px;
+    height: 24px;
+    border: 1px dotted black;
     background: rgb(25, 185, 25);
-    transition: height 0.5s, width 0.5s, border 0.5s;
-	transition-timing-function: ease;
 }
 
 button {
     outline: none;
 }
 
-.btn-ship {
-    margin: 5px 0;
+.ship-turn {
+    margin-left: 30px;
     padding: 5px;
     border-radius: 5px;
     font-family: inherit;
-    background-color: rgba(0, 0, 0, 0.78);
+    background-color: rgba(0, 0, 0, 0.65);
     color: rgb(25, 185, 25);
     transition: all .1s ease-in-out;
 }
 
-.btn-ship:hover {
+.ship-turn:hover {
     transform: scale(2);
 }
 
@@ -125,14 +117,20 @@ button {
     background-color: rgba(255, 7, 7, 0.78);
     color: rgb(14, 6, 8);
     animation: pulse 3s ease-in-out 1s infinite;
+    transition: all .2s;
+    box-shadow: 1px 3px 4px rgb(56, 45, 45);
 }
 
 .active{
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.65);
     color: rgb(25, 185, 25);
     transform: scale(1.2);
     letter-spacing: 1px;
     animation:none;
+}
+
+.active:hover {
+    box-shadow: inset 0px 5px 10px black;
 }
 
 @keyframes pulse {
