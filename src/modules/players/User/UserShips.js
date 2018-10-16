@@ -5,7 +5,6 @@ import Ships from '../../Ships/Ships';
 export default class UserShips extends User {
 	constructor(board) {
 		super(board);
-		this.active = false;
 		this.direction = 'vertical';
 	}
 
@@ -17,15 +16,14 @@ export default class UserShips extends User {
 			selectedNodes = [],
 			nodeArr;
 
-        
 		Utility.createGridArray([...this.board.element], shipGrid, 6);
 		// hover effect for placement
 		this.board.element.forEach(cell => {
 			cell.addEventListener('mouseover', event => {
 				row = +event.target.getAttribute('data-row');
 				col = +event.target.getAttribute('data-col');
-                
-				if (this.active) {
+
+				if (this.board.ships.length > 0 && !this.board.gameStarted) {
 					selectedShip = this.board.ships.filter(el => el.name === this.name)[0];
 
 					// checks for valid ships
@@ -51,20 +49,20 @@ export default class UserShips extends User {
 								selectedNodes.shift();
 							}
 						}
-                        nodeArr = selectedNodes.map(el => el.getAttribute('value'));
-                        if (nodeArr.every(el => el == 'empty')) {
-                            selectedNodes.forEach(el => (el.style.backgroundColor = 'black'));
-                        }
-						
+						nodeArr = selectedNodes.map(el => el.getAttribute('value'));
+						if (nodeArr.every(el => el == 'empty')) {
+							selectedNodes.forEach(el => (el.style.backgroundColor = 'black'));
+						}
 					}
 				}
 			});
 			// drops ship on click
 			this.board.element.forEach(cell => {
 				cell.addEventListener('click', () => {
-					if (this.active) {
+					// checks if ships are initalized
+					if (this.board.ships.length > 0 && !this.board.gameStarted) {
 						selectedShip = this.board.ships.filter(el => el.name === this.name)[0];
-
+						// checks if the ship is the board and the cells are empty
 						if (
 							selectedShip.size === selectedNodes.length &&
 							!selectedShip.dropped &&
@@ -83,10 +81,9 @@ export default class UserShips extends User {
 			// erases hover if not dropped
 			this.board.element.forEach(cell => {
 				cell.addEventListener('mouseleave', event => {
-					if (this.active) {
+					if (this.board.ships.length > 0 && !this.board.gameStarted) {
 						selectedShip = this.board.ships.filter(el => el.name === this.name)[0];
-						if (!selectedShip.dropped &&
-							nodeArr.every(el => el == 'empty')) {
+						if (!selectedShip.dropped && nodeArr.every(el => el == 'empty')) {
 							selectedNodes.forEach(el => (el.style.backgroundColor = 'rgba(0, 0, 0, 0.6)'));
 						}
 					}
@@ -96,24 +93,22 @@ export default class UserShips extends User {
 	}
 
 	shipSelect(shipSelector) {
-        const turn = document.querySelector('.ship-turn');
-        
+		const turn = document.querySelector('.ship-turn');
+
 		// changes direction based on ship turn btn
 		turn.addEventListener('click', () => {
-            let selectedShip = this.board.ships.filter(el => el.name === this.name)[0]
-            if (this.board.ships.length > 0 && selectedShip.dropped === false) {
-                if (turn.textContent == 'vertical') {
-                    turn.textContent = 'horizonal';
-                    this.board.ships[this.board.ships.length - 1].direction = turn.textContent;
-                    this.direction = turn.textContent;
-                } else if (turn.textContent == 'horizonal') {
-                    turn.textContent = 'vertical';
-                    this.board.ships[this.board.ships.length - 1].direction = turn.textContent;
-                    this.direction = turn.textContent;
-                }
-                
-            }
-			
+			let selectedShip = this.board.ships.filter(el => el.name === this.name)[0];
+			if (this.board.ships.length > 0 && selectedShip.dropped === false) {
+				if (turn.textContent == 'vertical') {
+					turn.textContent = 'horizonal';
+					this.board.ships[this.board.ships.length - 1].direction = turn.textContent;
+					this.direction = turn.textContent;
+				} else if (turn.textContent == 'horizonal') {
+					turn.textContent = 'vertical';
+					this.board.ships[this.board.ships.length - 1].direction = turn.textContent;
+					this.direction = turn.textContent;
+				}
+			}
 		});
 		// changes target ship based on option select
 		shipSelector.element.addEventListener('change', event => {
@@ -123,28 +118,21 @@ export default class UserShips extends User {
 				switch (this.name) {
 					case 'battleship':
 						this.size = 4;
-						this.active = true;
 						break;
 					case 'cruiser':
 						this.size = 3;
-						this.active = true;
 						break;
 					case 'submarine':
 						this.size = 2;
-						this.active = true;
 						break;
 					case 'destroyer':
 						this.size = 1;
-						this.active = true;
 						break;
-					case '0':
-						this.active = false;
 					default:
 						break;
-                }
-                this.board.addShips(new Ships(this.name, this.size, this.direction))
+				}
+				this.board.addShips(new Ships(this.name, this.size, this.direction));
 			}
 		});
 	}
-
 }
