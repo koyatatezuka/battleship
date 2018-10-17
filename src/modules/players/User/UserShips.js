@@ -51,7 +51,7 @@ export default class UserShips extends User {
 						}
 						nodeArr = selectedNodes.map(el => el.getAttribute('value'));
 						if (nodeArr.every(el => el == 'empty')) {
-							selectedNodes.forEach(el => (el.style.backgroundColor = 'black'));
+							selectedNodes.forEach(el => (el.style.backgroundColor = 'rgb(25, 185, 25)'));
 						}
 					}
 				}
