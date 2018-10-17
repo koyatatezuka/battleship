@@ -1,4 +1,11 @@
 import User from './User';
+import Sound from '../../Sound/Sound';
+
+export const water = new Sound('http://koo.corpus.cam.ac.uk/naturesound/waves/waterSPLASH.WAV')
+export const explosion = new Sound('http://d-gun.com/files/sounds/XPLOMAS2.WAV')
+
+water.sound.loop = false;
+explosion.sound.loop = false;
 
 export default class UserActions extends User {
 	constructor(board) {
@@ -17,6 +24,9 @@ export default class UserActions extends User {
 					!enemyAction.turn &&
 					this.board.ships.length > 0
 				) {
+					// miss sound
+					water.play()
+					
 					const cell = event.target;
                     // if shot in empty spot
 					if (event.target.getAttribute('value') === 'empty') {
@@ -25,12 +35,16 @@ export default class UserActions extends User {
                         message.textContent = `miss`;
                         // enemy turn and fires back
 						enemyAction.turn = true;
-                        enemyAction.fire(this.board);
+						enemyAction.fire(this.board);
+						 
                         // if shot on a ship
 					} else if (
 						event.target.getAttribute('value') !== 'miss' &&
 						event.target.getAttribute('value') !== 'hit'
 					) {
+						// hit sound
+						explosion.play()
+					
                         // gets the ship instance of the ship hit
 						const ship = enemyBoard.ships.filter(ship => ship.name == event.target.getAttribute('value'))[0];
 

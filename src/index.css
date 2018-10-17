@@ -26,6 +26,28 @@ body:after {
 
 /* main board elements */
 
+.sound {
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+#sound-btn {
+    padding: 5px;
+    font-size: 1em;
+    border-radius: 5px;
+    font-family: inherit;
+    background-color: rgba(0, 0, 0, 0.55);
+    color: rgb(25, 185, 25);
+    box-shadow: 1px 3px 4px rgb(56, 45, 45);
+    transition: all .2s;
+}
+
+#sound-btn:hover {
+    box-shadow: inset 0px 5px 10px black;
+}
+
 main {
 	display: flex;
 	flex-direction: column;
