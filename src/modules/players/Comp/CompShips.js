@@ -65,10 +65,5 @@ export default class CompShips extends Comp {
 			});
 		}
 
-		this.board.element.forEach(el => {
-			if (el.getAttribute('value') !== 'empty') {
-				el.setAttribute('style', 'background-color: green ');
-			}
-		});
 	}
 }
