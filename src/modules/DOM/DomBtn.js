@@ -1,12 +1,7 @@
 import Ships from '../Ships/Ships';
 import Board from '../Board/Board';
 import Sound from '../Sound/Sound';
-import { water, explosion } from '../players/User/UserActions';
-
-const preStartMusic = new Sound('http://cd.textfiles.com/sbsw/HIGHTECH/PINNGGG.WAV');
-const gameMusic = new Sound('http://sampleswap.org/samples-ghost/LOOPING%20AMBIENCE%20and%20NOISE/432[kb]mellow-beeps-into-atmosphere.wav.mp3')
-
-preStartMusic.sound.volume = .2
+import { water, explosion, preStartMusic, gameMusic } from '../Sound/Sound';
 
 export default class DomBtn {
 	constructor(element) {
@@ -16,18 +11,17 @@ export default class DomBtn {
 	// start and reset function
 	toggleGame(playerBoard, computerBoard, compShips) {
 		//audio actions
-		window.onload = preStartMusic.play()
+
 		this.toggleSound([preStartMusic, gameMusic, water, explosion]);
 
 		const messageBox = document.querySelector('.message-box');
-		const message = document.getElementById('message')
+		const message = document.getElementById('message');
 		const actionContainer = document.querySelector('.action-container');
 		this.element.addEventListener('click', event => {
-			
 			if (playerBoard.ships.length === 4 && !playerBoard.gameStarted) {
 				// game start music
 				preStartMusic.stop();
-				gameMusic.play()
+				gameMusic.play();
 				// init board and game
 				playerBoard.gameStarted = true;
 				computerBoard.gameStarted = true;
@@ -35,19 +29,18 @@ export default class DomBtn {
 
 				computerBoard.initGrid();
 				playerBoard.initGrid();
-				
+
 				this.element.classList.add('active');
 				this.element.textContent = 'RESET';
 
 				actionContainer.setAttribute('style', 'display: none');
-				messageBox.setAttribute('style', 'display: show')
-				message.textContent = 'Game Has Started'
-				
+				messageBox.setAttribute('style', 'display: show');
+				message.textContent = 'Game Has Started';
 			} else if (playerBoard.gameStarted) {
 				actionContainer.setAttribute('style', 'display: show');
 				// game reset music
-				gameMusic.stop()
-				preStartMusic.play()
+				gameMusic.stop();
+				preStartMusic.play();
 				//reset board and game
 				playerBoard.resetGridShips();
 				playerBoard.resetPlayerBoard();
@@ -59,9 +52,8 @@ export default class DomBtn {
 
 				//init first ship
 				this.initFirstShip(playerBoard);
-				message.textContent = ''
-				messageBox.setAttribute('style', 'display: none')
-				
+				message.textContent = '';
+				messageBox.setAttribute('style', 'display: none');
 			}
 		});
 	}
@@ -77,15 +69,14 @@ export default class DomBtn {
 	}
 
 	toggleSound(soundArr) {
-		document.getElementById('sound-btn').addEventListener('click', (event) => {
+		document.getElementById('sound-btn').addEventListener('click', event => {
 			if (event.target.textContent === 'sound off') {
 				event.target.textContent = 'sound on';
-				soundArr.forEach(sound => sound.sound.muted = true)
+				soundArr.forEach(sound => (sound.sound.muted = true));
 			} else if (event.target.textContent === 'sound on') {
 				event.target.textContent = 'sound off';
-				soundArr.forEach(sound => sound.sound.muted = false)
+				soundArr.forEach(sound => (sound.sound.muted = false));
 			}
-		})
+		});
 	}
 }
-

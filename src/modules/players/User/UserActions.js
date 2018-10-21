@@ -1,13 +1,7 @@
-import User from './User';
-import Sound from '../../Sound/Sound';
+import Players from '../Players';
+import { water, explosion } from '../../Sound/Sound';
 
-export const water = new Sound('http://koo.corpus.cam.ac.uk/naturesound/waves/waterSPLASH.WAV')
-export const explosion = new Sound('http://d-gun.com/files/sounds/XPLOMAS2.WAV')
-
-water.sound.loop = false;
-explosion.sound.loop = false;
-
-export default class UserActions extends User {
+export default class UserActions extends Players {
 	constructor(board) {
 		super(board);
 	}
@@ -17,7 +11,7 @@ export default class UserActions extends User {
 
 		enemyBoard.element.forEach(cell => {
 			cell.addEventListener('click', event => {
-                // valid if ships are on both boards, is your turn ans game started
+				// valid if ships are on both boards, is your turn ans game started
 				if (
 					enemyBoard.gameStarted &&
 					enemyBoard.ships.length > 0 &&
@@ -25,49 +19,49 @@ export default class UserActions extends User {
 					this.board.ships.length > 0
 				) {
 					// miss sound
-					water.play()
-					
+					water.play();
+
 					const cell = event.target;
-                    // if shot in empty spot
+					// if shot in empty spot
 					if (event.target.getAttribute('value') === 'empty') {
 						cell.setAttribute('value', 'miss');
 						cell.setAttribute('style', 'background-color: rgba(31, 118, 153, 0.78)');
-                        message.textContent = `miss`;
-                        // enemy turn and fires back
+						message.textContent = `miss`;
+						// enemy turn and fires back
 						enemyAction.turn = true;
 						enemyAction.fire(this.board);
-						 
-                        // if shot on a ship
+
+						// if shot on a ship
 					} else if (
 						event.target.getAttribute('value') !== 'miss' &&
 						event.target.getAttribute('value') !== 'hit'
 					) {
 						// hit sound
-						explosion.play()
-					
-                        // gets the ship instance of the ship hit
+						explosion.play();
+
+						// gets the ship instance of the ship hit
 						const ship = enemyBoard.ships.filter(ship => ship.name == event.target.getAttribute('value'))[0];
 
 						cell.setAttribute('value', 'hit');
-                        cell.setAttribute('style', 'background-color: rgba(146, 57, 57, 0.78)');
-                        // removes ship size if upon hit
+						cell.setAttribute('style', 'background-color: rgba(146, 57, 57, 0.78)');
+						// removes ship size if upon hit
 						ship.size -= 1;
 						enemyAction.turn = true;
-                        // checks if hit ship has no more spots and removes off board
+						// checks if hit ship has no more spots and removes off board
 						setTimeout(() => {
 							if (ship.size == 0) {
 								message.textContent = `You Sunk Their ${ship.name}!`;
 								enemyBoard.ships.splice(enemyBoard.ships.indexOf(ship), 1);
 							}
 						}, 1);
-                        // checks if all ships have sunk
+						// checks if all ships have sunk
 						setTimeout(() => {
 							if (enemyBoard.ships.length === 0) {
 								message.textContent = `player wins!`;
 								enemyAction.turn = false;
 							}
 						}, 2);
-                        // allows computer to fire back if game is still active
+						// allows computer to fire back if game is still active
 						setTimeout(() => {
 							if (enemyBoard.ships.length > 0) {
 								enemyAction.fire(this.board);

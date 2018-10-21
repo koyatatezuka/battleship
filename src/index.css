@@ -3,73 +3,74 @@
 	margin: 0;
 }
 
-html { 
-    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url("https://images.unsplash.com/photo-1508530786855-dfea35260b8d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b1e2a6c789569048656433f1051b0552&auto=format&fit=crop&w=1050&q=80") no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
+html {
+	background: linear-gradient(rgba(1, 9, 41, 0.8), rgba(1, 9, 41, 0.7)),
+		url('https://images.unsplash.com/photo-1508530786855-dfea35260b8d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b1e2a6c789569048656433f1051b0552&auto=format&fit=crop&w=1050&q=80')
+			no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
 
 body {
-    font-family: 'Cinzel', serif;
-    color: rgb(94, 196, 74);
+	font-family: 'Cinzel', serif;
+	color: rgb(94, 196, 74);
 }
 
 h2 {
-    color: white;
+	color: rgb(255, 255, 255);
 }
 
 /* main board elements */
 
 .sound {
-    width: 90%;
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
+	width: 90%;
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 20px;
 }
 
 #sound-btn {
-    padding: 5px;
-    font-size: 1em;
-    border-radius: 5px;
-    font-family: inherit;
-    border: 1px solid white;
-    background-color: rgba(0, 0, 0, 0.78);
-    color: rgb(25, 185, 25);
-    box-shadow: 1px 3px 4px rgb(133, 125, 125);
-    transition: all .2s;
+	padding: 5px;
+	font-size: 1em;
+	border-radius: 5px;
+	font-family: inherit;
+	border: 1px solid white;
+	background-color: rgba(0, 0, 0, 0.78);
+	color: rgb(25, 185, 25);
+	transition: all 0.2s;
 }
 
 #sound-btn:hover {
-    box-shadow: inset 0px 5px 10px rgb(163, 165, 172);
+	transform: scale(1.2);
 }
 
 main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-    margin-top: 20px;
+	margin-top: 20px;
 }
 
 table {
 	border-collapse: collapse;
-    text-align: center;
-    cursor: pointer;
+	text-align: center;
+	cursor: pointer;
 }
 
 table td {
 	font-size: 20px;
 }
 
-.player-cell {
+#player-cell {
 	border: 1px solid rgb(25, 185, 25);
 	width: 25px;
 	height: 25px;
 	background-color: rgba(0, 0, 0, 0.6);
 }
 
-.comp-cell {
+#comp-cell {
 	border: 3px solid rgb(25, 185, 25);
 	width: 50px;
 	height: 50px;
@@ -78,95 +79,99 @@ table td {
 
 /* ships and buttons */
 
-
 .action-container {
-    display: flex;
-    width: 90%;
-    justify-content: center;
-    margin: 20px auto;
-    align-items: center;
+	display: flex;
+	width: 90%;
+	justify-content: center;
+	margin: 20px auto;
+	align-items: center;
 }
 
 select {
-    outline: none;
-    width: 200px;
-    height: 50px;
-    background-color: rgba(0, 0, 0, 0.65);
-    color: rgb(25, 185, 25);
-    cursor: pointer;
-    font-size: 1em;
-    transition: all .5s
+	outline: none;
+	width: 200px;
+	height: 50px;
+	background-color: rgba(0, 0, 0, 0.65);
+	color: rgb(25, 185, 25);
+	cursor: pointer;
+	font-size: 1em;
+	transition: all 0.5s;
 }
 
 select:hover {
-    color: white;
+	color: rgb(228, 194, 3);
 }
 
 .ship-parts {
-    width: 24px;
-    height: 24px;
-    border: 1px dotted black;
-    background: rgb(25, 185, 25);
+	width: 24px;
+	height: 24px;
+	border: 1px dotted black;
+	background: rgb(25, 185, 25);
 }
 
 button {
-    outline: none;
+	outline: none;
 }
 
 .ship-turn {
-    margin-left: 30px;
-    padding: 5px;
-    border-radius: 5px;
-    font-family: inherit;
-    background-color: rgba(0, 0, 0, 0.65);
-    color: rgb(25, 185, 25);
-    transition: all .1s ease-in-out;
+	margin-left: 30px;
+	padding: 5px;
+	border-radius: 5px;
+	font-family: inherit;
+	background-color: rgba(0, 0, 0, 0.65);
+	color: rgb(25, 185, 25);
+	transition: all 0.1s ease-in-out;
 }
 
 .ship-turn:hover {
-    transform: scale(2);
+	transform: scale(2);
 }
 
 .btn-game {
-    margin: 5px 0;
-    padding: 10px 15px;
-    font-weight: bold;
-    text-align: center;
-    border-radius: 5px;
-    font-family: inherit;
-    background-color: rgba(252, 110, 54, 0.973);
-    color: rgb(255, 255, 255);
-    animation: pulse 3s ease-in-out 1s infinite;
-    transition: all .2s;
-    box-shadow: 1px 3px 4px rgb(196, 175, 156);
+	margin: 5px 0;
+	padding: 10px 15px;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 5px;
+	font-family: inherit;
+	background-color: rgba(0, 0, 0, 0.65);
+	color: rgb(25, 185, 25);
+	animation: pulse 3s ease-in-out 1s infinite;
+	transition: all 0.2s;
 }
 
-.active{
-    background-color: rgba(0, 0, 0, 0.65);
-    border: 1px solid white;
-    color: rgb(25, 185, 25);
-    transform: scale(1.2);
-    letter-spacing: 1px;
-    animation:none;
-}
-
-.active:hover {
-    box-shadow: inset 0px 5px 10px rgb(126, 117, 117);
+.active {
+	background-color: rgba(0, 0, 0, 0.65);
+	border: 1px solid white;
+	color: rgb(25, 185, 25);
+	transform: scale(1.2);
+	letter-spacing: 1px;
+	animation: none;
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    25% { transform: scale(1.6); }
-    50% { transform: scale(1); }
-    75% { transform: scale(1.6); }
-    100% { transform: scale(1); }
+	0% {
+		transform: scale(1);
+	}
+	25% {
+		transform: scale(1.6);
+	}
+	50% {
+		transform: scale(1);
+	}
+	75% {
+		transform: scale(1.6);
+	}
+	100% {
+		transform: scale(1);
+	}
 }
 
 /* footer */
 
 footer {
-    margin-top: 50px;
-    text-align: center;
-    width: 100vw;
-    color: white
+	margin-top: 50px;
+	text-align: center;
+	width: 100vw;
+	color: rgb(255, 255, 255);
 }

@@ -1,8 +1,8 @@
-import User from './User';
+import Players from '../Players';
 import Utility from '../../Utility/Utility';
 import Ships from '../../Ships/Ships';
 
-export default class UserShips extends User {
+export default class UserShips extends Players {
 	constructor(board) {
 		super(board);
 		this.direction = 'vertical';
@@ -92,7 +92,7 @@ export default class UserShips extends User {
 		});
 	}
 
-	shipSelect(shipSelector) {
+	selectShip(shipSelector) {
 		const turn = document.querySelector('.ship-turn');
 
 		// changes direction based on ship turn btn

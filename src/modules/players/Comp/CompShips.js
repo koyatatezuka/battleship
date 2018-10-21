@@ -1,8 +1,8 @@
-import Comp from './Comp';
+import Players from '../Players';
 import Utility from '../../Utility/Utility';
 import Ships from '../../Ships/Ships';
 
-export default class CompShips extends Comp {
+export default class CompShips extends Players {
 	constructor(board) {
 		super(board);
 	}
@@ -64,6 +64,5 @@ export default class CompShips extends Comp {
 				}
 			});
 		}
-
 	}
 }

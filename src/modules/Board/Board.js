@@ -37,21 +37,21 @@ export default class Board {
 	// resets player ui
 	resetPlayerBoard() {
 		this.element.forEach(cell => {
-			cell.setAttribute('style', 'background-color: rgba(0, 0, 0, 0.6); border: 1px solid rgb(25, 185, 25)')  
+			cell.setAttribute('style', 'background-color: rgba(0, 0, 0, 0.6); border: 1px solid rgb(25, 185, 25)');
 		});
 
 		this.element.forEach(cell => {
-			cell.setAttribute('value', 'empty')
-		}) 
+			cell.setAttribute('value', 'empty');
+		});
 	}
 	// resets comp ui
 	resetCompBoard() {
 		this.element.forEach(cell => {
-			cell.setAttribute('style', 'background-color: rgba(0, 0, 0, 0.78); border: 3px solid rgb(25, 185, 25)')  
+			cell.setAttribute('style', 'background-color: rgba(0, 0, 0, 0.78); border: 3px solid rgb(25, 185, 25)');
 		});
 
 		this.element.forEach(cell => {
-			cell.setAttribute('value', 'empty')
-		}) 
+			cell.setAttribute('value', 'empty');
+		});
 	}
 }
